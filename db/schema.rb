@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_20_112406) do
+ActiveRecord::Schema.define(version: 2022_06_10_075901) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.integer "employee_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_articles_on_employee_id"
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_10_20_112406) do
     t.index ["employee_id"], name: "index_profiles_on_employee_id"
   end
 
+  add_foreign_key "articles", "employees"
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "offices"
   add_foreign_key "profiles", "employees"
