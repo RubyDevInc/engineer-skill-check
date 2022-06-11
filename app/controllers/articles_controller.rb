@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.employee = current_user
     if @article.save
-      redirect_to articles_path, notice:"お知らせを投稿しました。"
+      redirect_to articles_path, notice:"新しいお知らせを投稿しました。"
     else
       render "new"
     end
@@ -27,11 +27,18 @@ class ArticlesController < ApplicationController
   end
 
   def update
-
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to articles_path, notice:"お知らせ「#{@article.title}」を更新しました。"
+    else
+      render "edit"
+    end
   end
 
   def destroy
-
+    article = Article.find(params[:id])
+    article.destroy
+    redirect_to articles_path, notice:"お知らせ「#{article.title}」を削除しました。"
   end
 
   private
