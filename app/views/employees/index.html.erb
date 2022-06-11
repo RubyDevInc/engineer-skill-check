@@ -18,13 +18,13 @@
     <tbody>
     <% @employees.each do |employee| %>
       <tr class="employee">
-        <% if employee.profiles.active.present? %>
-          <% if employee == current_user %>
+        <% if employee.profiles.active.present? %><!--対象社員のプロフィールが既に存在するか-->
+          <% if employee == current_user %><!--さらに、それがログイン中ユーザであればedhit画面へ、でなければshow画面へ-->
             <th><%= link_to employee.number, edit_employee_profile_path(employee, employee.profiles.active.first) %></th>
           <% else %>
             <th><%= link_to employee.number, employee_profile_path(employee, employee.profiles.active.first) %></th>
           <% end %>
-        <% else %>
+        <% else %><!--対象社員のプロフィールが存在しないなら、プロフィールindex画面へ(プロフィールがありません)-->
           <th><%= link_to employee.number, employee_profiles_path(employee) %></th>
         <% end %>
         <th class="name"><%= "#{employee.last_name} #{employee.first_name}" %></th>
