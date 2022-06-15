@@ -12,6 +12,7 @@
       <tr>
         <th><%= sort_order "number", "社員番号" %></th>
         <th class="name">氏名</th>
+        <th class="office_th"><%= sort_order "office_id", "オフィス" %></th>
         <th class="department_th"><%= sort_order "department_id", "所属" %></th>
       </tr>
     </thead>
@@ -28,10 +29,11 @@
           <th><%= link_to employee.number, employee_profiles_path(employee) %></th>
         <% end %>
         <th class="name"><%= "#{employee.last_name} #{employee.first_name}" %></th>
+        <th><%= employee.office.name %></th>
         <th><%= employee.department.name %></th>
         <% if current_user.employee_info_manage_auth %>
-          <th class="btn_th"><%= link_to '編集', edit_employee_path(employee), class: 'btn' %></th>
-          <th class="btn_th"><%= link_to '削除', employee, method: :delete, data: { confirm: "社員「#{employee.first_name} #{employee.last_name}」を削除します。よろしいですか？" }, class: 'btn' %></th>
+          <th class="btn_th"><%= link_to '編集', edit_employee_path(employee), class: 'btn btn-primary' %></th>
+          <th class="btn_th"><%= link_to '削除', employee, method: :delete, data: { confirm: "社員「#{employee.first_name} #{employee.last_name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' %></th>
         <% end %>
       </tr>
     <% end %>
