@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  before_action :has_employee_info_manage_auth?, only: %i(edit update destroy)
   before_action :set_employee, only: %i(edit update destroy)
   before_action :set_form_option, only: %i(new create edit update)
 
@@ -55,6 +56,10 @@ class EmployeesController < ApplicationController
   def set_form_option
     @departments = Department.all
     @offices = Office.all
+  end
+
+  def has_employee_info_manage_auth?
+    redirect_to employees_path unless current_user.employee_info_manage_auth
   end
 
   def sort_column
