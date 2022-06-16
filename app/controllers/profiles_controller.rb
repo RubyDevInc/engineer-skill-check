@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   before_action :set_employee
   before_action :set_profile, only: %i(show edit update)
@@ -34,16 +36,15 @@ class ProfilesController < ApplicationController
   end
 
   private
+    def profile_params
+      params.require(:profile).permit(:profile).merge(employee_id: params["employee_id"])
+    end
 
-  def profile_params
-    params.require(:profile).permit(:profile).merge(employee_id: params["employee_id"])
-  end
+    def set_employee
+      @employee = Employee.find(params["employee_id"])
+    end
 
-  def set_employee
-    @employee = Employee.find(params["employee_id"])
-  end
-
-  def set_profile
-    @profile = @employee.profiles.active.first
-  end
+    def set_profile
+      @profile = @employee.profiles.active.first
+    end
 end
