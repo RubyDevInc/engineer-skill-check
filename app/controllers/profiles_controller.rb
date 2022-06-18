@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :my_profile?, only: %i(edit update destroy)
   before_action :set_employee
   before_action :set_profile, only: %i(show edit update)
 
@@ -46,4 +47,10 @@ class ProfilesController < ApplicationController
   def set_profile
     @profile = @employee.profiles.active.first
   end
+
+  def my_profile?
+    set_employee
+    redirect_to employees_path unless @employee == current_user
+  end
+
 end
