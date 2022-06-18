@@ -1,4 +1,4 @@
-<div class="employee_form">
+<div class="employee_form mt-4">
   <% if employee.errors.present? %>
     <ul>
       <% employee.errors.full_messages.each do |message| %>
@@ -10,45 +10,48 @@
   <%= form_with model: employee, local: true do |f| %>
     <div class="form_group">
       <%= f.label :number %>
-      <%= f.text_field :number %>
+      <%= f.text_field :number, class:"form-control w-25 mb-3" %>
     </div>
 
-    <div class="form_group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+    <div class="form-row">
+      <div class="form_group col-3">
+        <%= f.label :last_name,"姓:" %>
+        <%= f.text_field :last_name, class:"form-control mb-3 mr-3" %>
+      </div>
+      <div class="form_group col-3 col-offset-6">
+        <%= f.label :first_name,"名:" %>
+        <%= f.text_field :first_name, class:"form-control mb-3" %>
+      </div>
     </div>
 
     <div class="form_group">
       <%= f.label :account %>
-      <%= f.text_field :account %>
+      <%= f.text_field :account, class:"form-control w-25 mb-3" %>
     </div>
 
     <div class="form_group">
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class:"form-control w-25 mb-3" %>
     </div>
 
     <div class="form_group">
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, class:"form-control w-50 mb-3" %>
     </div>
 
     <div class="form_group">
       <%= f.label :date_of_joining %>
-      <%= f.date_field :date_of_joining %>
+      <%= f.date_field :date_of_joining, class:"form-control w-25 mb-3" %>
     </div>
 
     <div class="form_group">
       <%= f.label :department_id %>
-      <%= f.collection_select(:department_id, @departments, :id, :name)%>
+      <%= f.collection_select(:department_id, @departments, :id, :name, { prompt: false }, class:"form-control w-25 mb-3") %>
     </div>
 
     <div class="form_group">
       <%= f.label :office_id %>
-      <%= f.collection_select(:office_id, @offices, :id, :name)%>
+      <%= f.collection_select(:office_id, @offices, :id, :name, { prompt: false }, class:"form-control w-25 mb-3") %>
     </div>
 
     <div class="form_group">
@@ -61,6 +64,8 @@
       <%= f.check_box :news_posting_auth, :as => :boolean %>
     </div>
 
-    <%= f.submit '保存' %>
+    <div class="form_group text-center">
+      <%= f.submit '保存', class:"form-control btn btn-info btn-lg w-25 mb-4" %>
+    </div>
   <% end %>
 </div>
