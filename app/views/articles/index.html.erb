@@ -11,6 +11,9 @@
     <thead>
       <tr>
         <th><%= articles_sort_order "タイトル" %></th>
+        <th>
+          著者
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +23,17 @@
           <%= link_to article.title, article_path(article) %>
           <%= article.created_at.strftime("%-m月 %-d日 %-H:%M") %>
         </th>
+
+        <% if article.employee.profiles.active.present? %><!--著者社員のプロフィールが既に存在するか-->
+          <% if article.employee == current_user %><!--さらに、それがログイン中ユーザであればedhit画面へ、でなければshow画面へ-->
+            <th><%= link_to "#{article.employee.last_name} #{article.employee.first_name}", edit_employee_profile_path(article.employee, article.employee.profiles.active.first) %></th>
+          <% else %>
+            <th><%= link_to "#{article.employee.last_name} #{article.employee.first_name}", employee_profile_path(article.employee, article.employee.profiles.active.first) %></th>
+          <% end %>
+        <% else %><!--対象社員のプロフィールが存在しないなら、プロフィール#indexへ(プロフィールがありません)-->
+          <th><%= link_to "#{article.employee.last_name} #{article.employee.first_name}", employee_profiles_path(article.employee) %></th>
+        <% end %>
+
         <% if current_user == article.employee %>
           <th class="btn_th"><%= link_to '編集', edit_article_path(article), class: 'btn' %></th>
           <th class="btn_th"><%= link_to '削除', article_path(article), method: :delete, data: { confirm: "「#{article.title}」を削除します。よろしいですか？" }, class: 'btn' %></th>
