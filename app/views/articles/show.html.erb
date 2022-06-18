@@ -1,8 +1,9 @@
 <div class="article_space">
-  <p class="article_index"><%= link_to '一覧に戻る', articles_path, class: 'btn' %></p>
+  <p class="article_index text-right my-3"><%= link_to '一覧に戻る', articles_path, class: 'btn btn-secondary' %></p>
 
-  <div class="row">
-    <p>タイトル 　　<%= @article.title %></p>
+  <div class="row my-3">
+    <label class="mr-4">タイトル:</label>
+    <h4><%= @article.title %></h4>
   </div>
 
   <div class="row">
