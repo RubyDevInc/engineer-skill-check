@@ -4,6 +4,7 @@ class EmployeesController < ApplicationController
   before_action :set_form_option, only: %i(new create edit update)
 
   def index
+    # order(対象カラム ソート順)
     @employees = Employee.active.order("#{sort_column} #{sort_direction}")
   end
 

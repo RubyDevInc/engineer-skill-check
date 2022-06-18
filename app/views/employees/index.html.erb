@@ -10,10 +10,10 @@
   <table class="employee_table">
     <thead>
       <tr>
-        <th><%= sort_order "number", "社員番号" %></th>
+        <th><%= employees_sort_order "number", "社員番号" %></th>
         <th class="name">氏名</th>
-        <th class="office_th"><%= sort_order "office_id", "オフィス" %></th>
-        <th class="department_th"><%= sort_order "department_id", "所属" %></th>
+        <th class="office_th"><%= employees_sort_order "office_id", "オフィス" %></th>
+        <th class="department_th"><%= employees_sort_order "department_id", "所属" %></th>
       </tr>
     </thead>
     <tbody>

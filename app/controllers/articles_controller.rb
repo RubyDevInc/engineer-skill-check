@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :my_article?, only:[:edit,:update,:destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.active.order("created_at #{sort_direction}")
   end
 
   def new
@@ -56,6 +56,10 @@ class ArticlesController < ApplicationController
   def my_article?
     article = Article.find(params[:id])
     redirect_to articles_path unless current_user == article.employee
+  end
+
+  def sort_direction
+    params[:direction] ? params[:direction] : 'desc'
   end
 
 end
