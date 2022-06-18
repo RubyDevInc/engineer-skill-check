@@ -1,4 +1,4 @@
-<div class="article_form">
+<div class="article_form mt-4">
   <% if article.errors.present? %>
     <ul>
       <% article.errors.full_messages.each do |message| %>
@@ -10,13 +10,15 @@
   <%= form_with model: article, local: true do |f| %>
     <div class="form_group">
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, class:"form-control mb-3" %>
     </div>
 
     <div class="form_group">
       <%= f.label :content %>
-      <%= f.text_area :content %>
+      <%= f.text_area :content, class:"form-control mb-3", rows: 5 %>
     </div>
-    <%= f.submit '保存' %>
+    <div class="form_group text-center">
+      <%= f.submit '保存',class:"form-control btn btn-info btn-lg w-25 mb-4" %>
+    </div>
   <% end %>
 </div>
