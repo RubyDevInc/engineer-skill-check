@@ -1,16 +1,21 @@
 <div class="profile_space">
-  <p class="employee_index"><%= link_to '一覧に戻る', employees_path, class: 'btn' %></p>
-
-  <%= render partial: 'employee_info', locals: { employee: @employee } %>
+  <p class="employee_index text-right my-3"><%= link_to '一覧に戻る', employees_path, class: 'btn btn-secondary' %></p>
 
   <div class="row">
-    <span class="label">プロフィール</span>
+    <%= render partial: 'employee_info', locals: { employee: @employee } %>
+  </div>
+
+  <div class="row">
+    <span class="label my-3 lead">プロフィール</span>
+  </div>
+  <div class="row">
     <span class="profile_value">
       <% if current_user == @employee %>
-        <p><%= link_to 'プロフィールを作成', new_employee_profile_path(@employee) %></p>
+        <p><%= link_to 'プロフィールを作成', new_employee_profile_path(@employee),class:"btn btn-primary" %></p>
       <% else %>
         （プロフィールがありません）
       <% end %>
       </span>
+    </div>
   </div>
 </div>

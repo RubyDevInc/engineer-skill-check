@@ -5,13 +5,16 @@
     <% end %>
   </ul>
 <% end %>
-
-<%= render partial: 'employee_info', locals: { employee: @employee } %>
+<div class="row my-3">
+  <%= render partial: 'employee_info', locals: { employee: @employee } %>
+</div>
 
 <%= form_with model: [employee, profile], local: true do |f| %>
   <div class="form_group">
-    <%= f.label :profile, class: 'label' %>
-    <%= f.text_area :profile %>
+    <%= f.label :profile, class: 'label lead' %>
+    <%= f.text_area :profile, class: "form-control", rows: 5 %>
   </div>
-  <%= f.submit '保存' %>
+  <div class="form_group text-center">
+    <%= f.submit '保存', class:"btn btn-lg btn-info w-25 mt-3" %>
+  </div>
 <% end %>

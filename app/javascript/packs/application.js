@@ -13,6 +13,7 @@ import "bootstrap";
 import "../stylesheets/application.scss"
 // import "../stylesheets/mystyle.scss"
 import "../stylesheets/application.css"
+// import "../employees.scss"
 
 
 Rails.start()
