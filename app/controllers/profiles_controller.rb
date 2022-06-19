@@ -52,5 +52,4 @@ class ProfilesController < ApplicationController
     set_employee
     redirect_to employees_path unless @employee == current_user
   end
-
 end

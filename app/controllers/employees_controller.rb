@@ -26,7 +26,6 @@ class EmployeesController < ApplicationController
   end
 
   def update
-
     if @employee.update(employee_params)
       redirect_to employees_url, notice: "社員「#{@employee.last_name} #{@employee.first_name}」を更新しました。"
     else
@@ -70,5 +69,4 @@ class EmployeesController < ApplicationController
   def sort_direction
     params[:direction] ? params[:direction] : 'asc'
   end
-
 end

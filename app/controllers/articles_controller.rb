@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :has_news_posting_auth?, only:[:edit,:update,:destroy]
-  before_action :my_article?, only:[:edit,:update,:destroy]
+  before_action :has_news_posting_auth?, only: [:edit, :update, :destroy]
+  before_action :my_article?, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.active.order("created_at #{sort_direction}").page(params[:page])
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.employee = current_user
     if @article.save
-      redirect_to articles_path, notice:"新しいお知らせを投稿しました。"
+      redirect_to articles_path, notice: "新しいお知らせを投稿しました。"
     else
       render "new"
     end
@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to articles_path, notice:"お知らせ「#{@article.title}」を更新しました。"
+      redirect_to articles_path, notice: "お知らせ「#{@article.title}」を更新しました。"
     else
       render "edit"
     end
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
   def destroy
     article = Article.find(params[:id])
     article.destroy
-    redirect_to articles_path, notice:"お知らせ「#{article.title}」を削除しました。"
+    redirect_to articles_path, notice: "お知らせ「#{article.title}」を削除しました。"
   end
 
   private
@@ -61,5 +61,4 @@ class ArticlesController < ApplicationController
   def sort_direction
     params[:direction] ? params[:direction] : 'desc'
   end
-
 end
