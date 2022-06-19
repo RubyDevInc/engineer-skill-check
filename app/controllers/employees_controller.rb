@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
 
   def index
     # order(対象カラム ソート順)
-    @employees = Employee.active.order("#{sort_column} #{sort_direction}")
+    @employees = Employee.active.order("#{sort_column} #{sort_direction}").page(params[:page])
   end
 
   def new
