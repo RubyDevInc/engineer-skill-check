@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :my_article?, only:[:edit,:update,:destroy]
 
   def index
-    @articles = Article.active.order("created_at #{sort_direction}")
+    @articles = Article.active.order("created_at #{sort_direction}").page(params[:page])
   end
 
   def new

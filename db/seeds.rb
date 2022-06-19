@@ -18,3 +18,7 @@ OFFICE_NAME.each.with_index(1) { |office, i| Office.find_or_create_by(id: i, nam
   password: 'kinoko', email: 'yamada@example.co.jp', date_of_joining: '1991/4/1',
   employee_info_manage_auth: true, news_posting_auth: true)
 end
+
+50.times do |n|
+  Article.find_or_create_by(title: "#{n}個目のお知らせ", content: "#{n}個目のお知らせの内容", employee_id: n+1)
+end
