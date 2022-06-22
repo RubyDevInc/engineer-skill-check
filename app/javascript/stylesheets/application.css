@@ -47,6 +47,7 @@ body {
 
 #menu {
   width: auto;
+  padding-top: 25px;
   border: 1px solid;
   font-size: 24px;
   display: flex;
@@ -103,7 +104,7 @@ body {
 
 .dropdown__btn {
   font-size: 24px;
-  background: none;
-  border: 0;
+  /*background: none;*/
+  /*border: 5px;*/
 }
 

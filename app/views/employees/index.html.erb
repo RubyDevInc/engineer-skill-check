@@ -5,9 +5,12 @@
 
   <div class="row">
     <div class="col-12">
-      <% if current_user.employee_info_manage_auth %>
-        <p class="new_employee text-right m-3"><%= link_to '新規追加', new_employee_path, class: 'btn btn-primary' %></p>
-      <% end %>
+      <div class="new_employee text-right m-3">
+        <% if current_user.employee_info_manage_auth %>
+          <%= link_to '新規追加', new_employee_path, class: 'btn btn-primary' %>
+        <% end %>
+        <%= link_to "csvで出力する",employees_path(format: :csv), class: 'btn btn-warning' %>
+      </div>
     </div>
   </div>
 
@@ -51,5 +54,6 @@
         </tbody>
       </table>
     </div>
+  <%= paginate @employees %>
   </div>
 </div>
