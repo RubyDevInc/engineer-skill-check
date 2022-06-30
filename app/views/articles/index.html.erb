@@ -1,0 +1,32 @@
+<div class="article_index">
+  <% if flash.notice.present? %>
+    <p><%= flash.notice %></p>
+  <% end %>
+
+  <% if current_user.news_posting_auth %>
+    <p class="new_article"><%= link_to '新規追加', new_article_path, class: 'btn' %></p>
+  <% end %>
+
+  <table class="article_table">
+    <thead>
+      <tr>
+        <th><%= sort_order "created", "公開日" %></th>
+        <th class="title">タイトル</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @articles.each do |article| %>
+      <tr class="article">
+        <th><%= article.created_at.strftime("%Y/%-m/%-d %H:%M") %></th>
+        <th class="title"><%= link_to article.title, article_path(article) %></th>
+        <% if current_user.news_posting_auth && article.Author == current_user.id %>
+          <th class="btn_th"><%= link_to '編集', edit_article_path(article), class: 'btn' %></th>
+          <th class="btn_th"><%= link_to '削除', article, method: :delete, data: { confirm: "記事「#{article.title}」を削除します。よろしいですか？" }, class: 'btn' %></th>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @articles %>
+</div>
