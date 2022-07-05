@@ -3,7 +3,14 @@ class EmployeesController < ApplicationController
   before_action :set_form_option, only: %i(new create edit update)
 
   def index
-    @employees = Employee.active.page(params[:page]).per(5).order("#{sort_column} #{sort_direction}")
+    @employees = Employee.active.page(params[:page]).per(12).order("#{sort_column} #{sort_direction}")
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data render_to_string, filename: 'employee-list.csv', type: :csv
+      end
+    end
   end
 
   def new
