@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: %i(edit update destroy)
-  before_action :set_form_option, only: %i(new create edit update)
+  before_action :set_employee, only: %i[edit update destroy]
+  before_action :set_form_option, only: %i[new create edit update]
 
   def index
     @employees = Employee.active.order("#{sort_column} #{sort_direction}")
@@ -22,8 +24,7 @@ class EmployeesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     add_params
@@ -37,9 +38,9 @@ class EmployeesController < ApplicationController
 
   def destroy
     ActiveRecord::Base.transaction do
-      now = Time.now
-      @employee.update_column(:deleted_at, now)
-      @employee.profiles.active.first.update_column(:deleted_at, now) if @employee.profiles.active.present?
+      now = Time.zone.now
+      @employee.update(deleted_at: now)
+      @employee.profiles.active.first.update(deleted_at: now) if @employee.profiles.active.present?
     end
 
     redirect_to employees_url, notice: "社員「#{@employee.last_name} #{@employee.first_name}」を削除しました。"
@@ -52,7 +53,7 @@ class EmployeesController < ApplicationController
   end
 
   def set_employee
-    @employee = Employee.find(params["id"])
+    @employee = Employee.find(params['id'])
   end
 
   def set_form_option
@@ -62,20 +63,15 @@ class EmployeesController < ApplicationController
 
   # 現在、メールアドレスと入社日は入力できないため、ここで追加しています。
   def add_params
-    unless @employee.email
-      @employee.email = 'sample@example.com'
-    end
-    unless @employee.date_of_joining
-      @employee.date_of_joining = Date.today
-    end
+    @employee.email = 'sample@example.com' unless @employee.email
+    @employee.date_of_joining = Time.zone.today unless @employee.date_of_joining
   end
 
   def sort_column
-    params[:sort] ? params[:sort] : 'number'
+    params[:sort] || 'number'
   end
 
   def sort_direction
-    params[:direction] ? params[:direction] : 'asc'
+    params[:direction] || 'asc'
   end
-
 end
