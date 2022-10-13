@@ -1,0 +1,13 @@
+linters:
+  EmptyLines:
+    exclude:
+      - 'app/views/dashboard/index.html.slim'
+
+  TrailingBlankLines:
+    exclude:
+      - 'app/views/dashboard/index.html.slim'
+
+  LineLength:
+    max: 120
+    exclude:
+      - 'app/views/employees/index.html.slim'
