@@ -27,5 +27,5 @@
       = f.collection_select(:office_id, @offices, :id, :name)
     .form_group
       = f.label :employee_info_manage_auth, class: 'checkbox_label'
-      = f.check_box :employee_info_manage_auth, :as => :boolean
+      = f.check_box :employee_info_manage_auth, { as: :boolean }
     = f.submit '保存'

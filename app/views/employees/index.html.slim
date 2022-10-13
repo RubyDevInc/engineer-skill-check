@@ -9,11 +9,11 @@
     thead
       tr
         th
-          = sort_order "number", "社員番号"
+          = sort_order 'number', '社員番号'
         th.name
           | 氏名
         th.department_th
-          = sort_order "department_id", "所属"
+          = sort_order 'department_id', '所属'
     tbody
       - @employees.each do |employee|
         tr.employee
