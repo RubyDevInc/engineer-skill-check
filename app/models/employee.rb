@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/UniqueValidationWithoutIndex
 class Employee < ApplicationRecord
   belongs_to :office
   belongs_to :department
@@ -15,3 +16,4 @@ class Employee < ApplicationRecord
     where(deleted_at: nil)
   }
 end
+# rubocop:enable Rails/UniqueValidationWithoutIndex
