@@ -64,7 +64,7 @@ class EmployeesController < ApplicationController
   # 現在、メールアドレスと入社日は入力できないため、ここで追加しています。
   def add_params
     @employee.email = 'sample@example.com' unless @employee.email
-    @employee.date_of_joining = Date.today unless @employee.date_of_joining
+    @employee.date_of_joining = Time.zone.today unless @employee.date_of_joining
   end
 
   def sort_column
