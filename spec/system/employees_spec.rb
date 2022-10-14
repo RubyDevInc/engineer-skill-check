@@ -6,7 +6,7 @@ describe 'Employees', js: true, type: :system do
   describe 'employees index' do
     before do
       FactoryBot.create(:manager_employee)
-      FactoryBot.create(:normal_employee)
+      @employee = FactoryBot.create(:normal_employee)
     end
 
     context 'when authorized employee is logged in' do
@@ -27,6 +27,12 @@ describe 'Employees', js: true, type: :system do
 
       it 'edit button appear' do
         expect(page).to have_content '編集'
+      end
+
+      it 'delete employee' do
+        all('tbody tr')[3].click_link '削除'
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content "「#{@employee.last_name} #{@employee.first_name}」を削除しました"
       end
     end
 
