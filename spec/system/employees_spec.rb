@@ -4,18 +4,20 @@ require 'rails_helper'
 
 describe 'Employees', js: true, type: :system do
   describe 'employees index' do
+    let(:manager_employee) { FactoryBot.create(:manager_employee) }
+    let(:normal_employee) { FactoryBot.create(:normal_employee) }
+
     before do
-      FactoryBot.create(:manager_employee)
-      @employee = FactoryBot.create(:normal_employee)
+      FactoryBot.create(:department_gizyutu)
+      FactoryBot.create(:office_osaka)
+      visit login_path
+      fill_in 'employees_account', with: login_employee.account
+      fill_in 'employees_password', with: login_employee.password
+      click_button 'ログイン'
     end
 
     context 'when authorized employee is logged in' do
-      before do
-        visit login_path
-        fill_in 'employees_account', with: 'murakami'
-        fill_in 'employees_password', with: 'haruki'
-        click_button 'ログイン'
-      end
+      let(:login_employee) { manager_employee }
 
       it 'create button appear' do
         expect(page).to have_content '新規追加'
@@ -30,19 +32,28 @@ describe 'Employees', js: true, type: :system do
       end
 
       it 'delete employee' do
-        all('tbody tr')[3].click_link '削除'
+        all('tbody tr')[1].click_link '削除'
         page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content "「#{@employee.last_name} #{@employee.first_name}」を削除しました"
+        expect(page).to have_content "「#{manager_employee.last_name} #{manager_employee.first_name}」を削除しました"
+      end
+
+      it 'edit employee' do
+        all('tbody tr')[1].click_link '編集'
+        fill_in 'employee_last_name', with: '治'
+        fill_in 'employee_first_name', with: '太宰'
+        fill_in 'employee_password', with: manager_employee.password
+        select '技術部', from: 'employee_department_id'
+        select '大阪', from: 'employee_office_id'
+        click_on '保存'
+        all('tbody tr')[1].click_link '編集'
+        expect(page).to have_content '治 太宰'
+        expect(page).to have_content '技術部'
+        expect(page).to have_content '大阪'
       end
     end
 
     context 'when employee is logged in' do
-      before do
-        visit login_path
-        fill_in 'employees_account', with: 'natsume'
-        fill_in 'employees_password', with: 'sohseki'
-        click_button 'ログイン'
-      end
+      let(:login_employee) { normal_employee }
 
       it 'delete button not appear' do
         expect(page).to have_no_content '削除'

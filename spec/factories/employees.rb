@@ -5,8 +5,8 @@ FactoryBot.define do
     department
     office
     number { '1' }
-    last_name { 'haruki' }
-    first_name { 'murakami' }
+    last_name { '春樹' }
+    first_name { '村上' }
     account { 'murakami' }
     password { 'haruki' }
     email { 'haruki@example.com' }
@@ -18,8 +18,8 @@ FactoryBot.define do
     department
     office
     number { '2' }
-    last_name { 'sohseki' }
-    first_name { 'natsume' }
+    last_name { '漱石' }
+    first_name { '夏目' }
     account { 'natsume' }
     password { 'sohseki' }
     email { 'sohseki@example.com' }
