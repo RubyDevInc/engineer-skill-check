@@ -50,6 +50,23 @@ describe 'Employees', js: true, type: :system do
         expect(page).to have_content '技術部'
         expect(page).to have_content '大阪'
       end
+
+      it 'create employee' do
+        click_link '新規追加'
+        fill_in 'employee_number', with: 3
+        fill_in 'employee_last_name', with: '治'
+        fill_in 'employee_first_name', with: '太宰'
+        fill_in 'employee_account', with: 'account'
+        fill_in 'employee_password', with: 'hogehoge'
+        fill_in 'employee_email', with: 'hoge@example.com'
+        check 'お知らせ投稿権限'
+        check '社員情報管理権限'
+        fill_in 'employee_date_of_joining', with: '2022-04-01'
+        select '技術部', from: 'employee_department_id'
+        select '大阪', from: 'employee_office_id'
+        click_on '保存'
+        expect(page).to have_content '治 太宰'
+      end
     end
 
     context 'when employee is logged in' do
