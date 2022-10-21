@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :article do
     title { 'MyString' }
     content { 'MyText' }
-    employee
+    created_at { '2022/10/01' }
   end
 end

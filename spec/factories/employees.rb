@@ -12,6 +12,7 @@ FactoryBot.define do
     email { 'haruki@example.com' }
     date_of_joining { '1991/4/1' }
     employee_info_manage_auth { 'true' }
+    news_posting_auth { 'true' }
   end
 
   factory :normal_employee, class: 'Employee' do
@@ -25,5 +26,6 @@ FactoryBot.define do
     email { 'sohseki@example.com' }
     date_of_joining { '1991/4/1' }
     employee_info_manage_auth { 'false' }
+    news_posting_auth { 'false' }
   end
 end
