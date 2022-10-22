@@ -2,7 +2,7 @@ ja:
   helpers:
     submit:
       update: 更新
-      create: 作成
+      create: 保存
   activerecord:
     errors:
       messages:

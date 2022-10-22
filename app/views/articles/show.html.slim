@@ -1,14 +1,12 @@
 .article
   .nav.justify-content-end.mt-3
-    = link_to 'お知らせ一覧に戻る', articles_path, class: 'btn btn-primary'
+    = link_to '一覧に戻る', articles_path, class: 'btn btn-primary'
   .mt-3
     .form-label.justify-content-start
       | タイトル
     .form-control
       = @article.title
-    .form-label.justify-content-start.mt-3
-      | お知らせ
-    .form-control.text-area-size
+    .form-control.text-area-size.mt-2
       = simple_format(h(@article.content), {}, sanitize: false, wrapper_tag: 'div')
   - if current_user.news_posting_auth && @article.employee_id == current_user.id
     .nav.justify-content-end.mt-3
