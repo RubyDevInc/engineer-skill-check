@@ -31,6 +31,24 @@ describe 'Articles', js: true, type: :system do
         expect(page).to have_content '編集'
         expect(page).to have_content '削除'
       end
+
+      it 'edit article' do
+        click_link 'お知らせ'
+        click_link '編集'
+        fill_in 'article_title', with: 'MyTitle'
+        fill_in 'article_content', with: 'MyContent'
+        click_button '更新'
+        expect(page).to have_content 'MyTitleを更新しました。'
+      end
+
+      it 'create article' do
+        click_link 'お知らせ'
+        click_link '新規追加'
+        fill_in 'article_title', with: 'MyNumber'
+        fill_in 'article_content', with: 'MyNumberを提出してください'
+        click_button '作成'
+        expect(page).to have_content 'MyNumberを作成しました。'
+      end
     end
 
     context 'when normal employee is logged in' do
@@ -40,12 +58,12 @@ describe 'Articles', js: true, type: :system do
         click_link 'お知らせ'
         expect(page).to have_content 'MyString'
         expect(page).to have_content '2022/10/01'
-        expect(page).to_not have_content '編集'
-        expect(page).to_not have_content '削除'
+        expect(page).not_to have_content '編集'
+        expect(page).not_to have_content '削除'
         click_link 'MyString'
         expect(page).to have_content 'MyText'
-        expect(page).to_not have_content '編集'
-        expect(page).to_not have_content '削除'
+        expect(page).not_to have_content '編集'
+        expect(page).not_to have_content '削除'
       end
     end
   end
