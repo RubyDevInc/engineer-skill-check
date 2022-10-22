@@ -50,6 +50,22 @@ describe 'Articles', js: true, type: :system do
         expect(page).to have_content '「MyNumber」を作成しました。'
       end
 
+      it 'appear validation title' do
+        click_link 'お知らせ'
+        click_link '新規追加'
+        fill_in 'article_title', with: ''
+        click_button '作成'
+        expect(page).to have_content 'タイトル を入力してください'
+      end
+
+      it 'appear validation title length' do
+        click_link 'お知らせ'
+        click_link '新規追加'
+        fill_in 'article_title', with: '111111111122222222223333333333444444444455555555556'
+        click_button '作成'
+        expect(page).to have_content 'タイトル は50文字以内で入力してください'
+      end
+
       it 'delete article' do
         click_link 'お知らせ'
         click_link '削除'
