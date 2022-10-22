@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[edit show update]
+  before_action :set_article, only: %i[edit show update destroy]
   before_action :set_form_option, only: %i[new create]
 
   def index
-    @articles = Article.all.order(created_at: 'DESC')
+    @articles = Article.active.order(created_at: 'DESC')
   end
 
   def new
@@ -31,6 +31,15 @@ class ArticlesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    ActiveRecord::Base.transaction do
+      now = Time.zone.now
+      @article.update(deleted_at: now)
+    end
+
+    redirect_to articles_url, notice: "「#{@article.title}」を削除しました。"
   end
 
   private

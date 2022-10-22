@@ -49,6 +49,13 @@ describe 'Articles', js: true, type: :system do
         click_button '作成'
         expect(page).to have_content 'MyNumberを作成しました。'
       end
+
+      it 'delete article' do
+        click_link 'お知らせ'
+        click_link '削除'
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content '「MyString」を削除しました。'
+      end
     end
 
     context 'when normal employee is logged in' do
