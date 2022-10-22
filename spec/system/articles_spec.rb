@@ -38,7 +38,7 @@ describe 'Articles', js: true, type: :system do
         fill_in 'article_title', with: 'MyTitle'
         fill_in 'article_content', with: 'MyContent'
         click_button '更新'
-        expect(page).to have_content 'MyTitleを更新しました。'
+        expect(page).to have_content '「MyTitle」を更新しました。'
       end
 
       it 'create article' do
@@ -47,7 +47,7 @@ describe 'Articles', js: true, type: :system do
         fill_in 'article_title', with: 'MyNumber'
         fill_in 'article_content', with: 'MyNumberを提出してください'
         click_button '作成'
-        expect(page).to have_content 'MyNumberを作成しました。'
+        expect(page).to have_content '「MyNumber」を作成しました。'
       end
 
       it 'delete article' do

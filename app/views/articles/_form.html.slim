@@ -1,10 +1,12 @@
-.nav.justify-content-end
-  = link_to 'お知らせ一覧', articles_path, class: 'btn'
-
-= form_with model: @article, local: true do |f|
-  .form-group
-    = f.label :title
-    = f.text_field :title
-  .form-group
-    = f.text_field :content
-  = f.submit nil, class: 'btn'
+.article
+  .nav.justify-content-end.mt-3
+    = link_to 'お知らせ一覧', articles_path, class: 'btn btn-primary'
+  = form_with model: @article, local: true do |f|
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: 'form-control mt-1 new-article-form'
+    .form-group
+      = f.label :content
+      = f.text_area :content, class: 'form-control mt-1 new-article-form text-area-size'
+    .nav.justify-content-end
+      = f.submit nil, class: 'btn btn-secondary'

@@ -1,24 +1,22 @@
-.article_index
-  - if flash.notice.present?
-    p
-      = flash.notice
+.article.mt-3
   - if current_user.news_posting_auth
-    p.new_article
-      = link_to '新規追加', new_article_path, class: 'btn'
-  table.table.table-hover
-   thead
-    tr
-      th
-        | タイトル
-      th
-        | 公開日
-    tbody
-      - @articles.each do |article|
-        tr.article
-          td = link_to article.title, article_path(article)
-          td = article.created_at.strftime('%Y/%m/%d')
-          - if current_user.news_posting_auth && article.employee_id == current_user.id
-            td
-              = link_to '編集', edit_article_path(article), class: 'btn'
-            td
-              = link_to '削除', article, method: :delete, data: { confirm: "#{article.title}を削除しますか？" }, class: 'btn'
+    .nav.justify-content-end
+      = link_to '新規追加', new_article_path, class: 'btn btn-primary'
+  table.table.mt-3
+    thead
+      tr
+        th
+          | タイトル
+        th
+          | 公開日
+      tbody
+        - @articles.each do |article|
+          tr.article
+            td = link_to article.title, article_path(article)
+            td = article.created_at.strftime('%Y/%m/%d')
+            - if current_user.news_posting_auth && article.employee_id == current_user.id
+              td
+                = link_to '編集', edit_article_path(article), class: 'btn btn-secondary'
+              td
+                = link_to '削除', article, method: :delete, data: { confirm: "「#{article.title}」を削除しますか？" },
+                class: 'btn btn-danger'

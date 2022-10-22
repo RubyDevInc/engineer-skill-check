@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      redirect_to articles_url, notice: "#{@article.title}を作成しました。"
+      redirect_to articles_url, notice: "「#{@article.title}」を作成しました。"
     else
       render :new
     end
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to articles_url, notice: "#{@article.title}を更新しました。"
+      redirect_to articles_url, notice: "「#{@article.title}」を更新しました。"
     else
       render :edit
     end
