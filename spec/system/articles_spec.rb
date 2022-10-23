@@ -11,6 +11,7 @@ describe 'Articles', js: true, type: :system do
       FactoryBot.create(:department_gizyutu)
       FactoryBot.create(:office_osaka)
       FactoryBot.create(:article, employee: manager_employee)
+      FactoryBot.create(:article, title: '検索機能', created_at: '2022/10/31', employee: manager_employee)
       visit login_path
       fill_in 'employees_account', with: login_employee.account
       fill_in 'employees_password', with: login_employee.password
@@ -87,6 +88,22 @@ describe 'Articles', js: true, type: :system do
         expect(page).to have_content 'MyText'
         expect(page).not_to have_content '編集'
         expect(page).not_to have_content '削除'
+      end
+
+      it 'search article' do
+        click_link 'お知らせ'
+        fill_in 'q_title_cont', with: '検索機能'
+        click_button '検索'
+        expect(page).not_to have_content 'MyString'
+        expect(page).to have_content '検索機能'
+      end
+
+      it 'sort created_at article' do
+        click_link 'お知らせ'
+        expect(all('tbody tr')[0]).to have_content '2022/10/01'
+        click_link '公開日'
+        click_link '公開日'
+        expect(all('tbody tr')[1]).to have_content '2022/10/01'
       end
     end
   end

@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   before_action :set_form_option, only: %i[new create]
 
   def index
-    @articles = Article.active.order(created_at: 'DESC')
+    @q = Article.all.ransack(params[:q])
+    @articles = @q.result(distinct: true)
   end
 
   def new

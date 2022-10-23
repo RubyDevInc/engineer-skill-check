@@ -43,3 +43,4 @@ ja:
       article:
         title: タイトル
         content: お知らせ
+        created_at: 公開日
