@@ -11,7 +11,6 @@ describe 'Articles', js: true, type: :system do
       FactoryBot.create(:department_gizyutu)
       FactoryBot.create(:office_osaka)
       FactoryBot.create(:article, employee: manager_employee)
-      FactoryBot.create(:article, title: '検索機能', created_at: '2022/10/31', employee: manager_employee)
       visit login_path
       fill_in 'employees_account', with: login_employee.account
       fill_in 'employees_password', with: login_employee.password
@@ -47,7 +46,7 @@ describe 'Articles', js: true, type: :system do
         click_link '新規追加'
         fill_in 'article_title', with: 'MyNumber'
         fill_in 'article_content', with: 'MyNumberを提出してください'
-        click_button '作成'
+        click_button '保存'
         expect(page).to have_content '「MyNumber」を作成しました。'
       end
 
@@ -55,7 +54,7 @@ describe 'Articles', js: true, type: :system do
         click_link 'お知らせ'
         click_link '新規追加'
         fill_in 'article_title', with: ''
-        click_button '作成'
+        click_button '保存'
         expect(page).to have_content 'タイトル を入力してください'
       end
 
@@ -63,7 +62,7 @@ describe 'Articles', js: true, type: :system do
         click_link 'お知らせ'
         click_link '新規追加'
         fill_in 'article_title', with: '111111111122222222223333333333444444444455555555556'
-        click_button '作成'
+        click_button '保存'
         expect(page).to have_content 'タイトル は50文字以内で入力してください'
       end
 
@@ -77,6 +76,10 @@ describe 'Articles', js: true, type: :system do
 
     context 'when normal employee is logged in' do
       let(:login_employee) { normal_employee }
+
+      before do
+        FactoryBot.create(:article, title: '検索機能', created_at: '2022/10/31', employee: manager_employee)
+      end
 
       it 'article index appear' do
         click_link 'お知らせ'
