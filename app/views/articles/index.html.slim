@@ -27,3 +27,6 @@
               td
                 = link_to '削除', article, method: :delete, data: { confirm: "「#{article.title}」を削除しますか？" },
                 class: 'btn btn-danger'
+  .pagenation.mb-3
+    = paginate @articles, theme: 'bootstrap-5'
+    = page_entries_info @articles
