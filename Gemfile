@@ -63,5 +63,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap', '~> 5.2', '>= 5.2.1'
 gem 'html2slim', '~> 0.2.0'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'ransack'
 gem 'slim-rails', '~> 3.5', '>= 3.5.1'
