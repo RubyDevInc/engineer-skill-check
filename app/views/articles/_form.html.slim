@@ -1,0 +1,15 @@
+.article
+  .nav.justify-content-end.mt-3
+    = link_to '一覧に戻る', articles_path, class: 'btn btn-primary'
+  - if article.errors.present?
+    ul.error-message.text-danger.ps-0
+      - article.errors.full_messages.each do |message|
+        li.alert-success = message
+  = form_with model: @article, local: true do |f|
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: 'form-control mt-1 new-article-form'
+    .form-group
+      = f.text_area :content, class: 'form-control mt-1 new-article-form text-area-size'
+    .nav.justify-content-end
+      = f.submit nil, class: 'btn btn-secondary'
