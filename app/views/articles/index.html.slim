@@ -1,4 +1,7 @@
 .article.mt-3
+  - if flash.notice.present?
+    .alert.alert-success.mt-1
+      = flash.notice
   = search_form_for @q, class: 'mb-3' do |f|
     .form-group.row
       = f.label :title_cont, 'タイトルで検索する', class: 'col-sm-3 col-form-label'

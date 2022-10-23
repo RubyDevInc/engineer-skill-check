@@ -12,7 +12,4 @@ html
     - if logged_in?
       = render 'layouts/header'
     .container
-      - if flash.notice.present?
-        .alert.alert-success.mt-1
-          = flash.notice
       = yield
