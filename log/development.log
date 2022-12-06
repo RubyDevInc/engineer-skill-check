@@ -340,3 +340,765 @@ Your manifest contains:
     13:     <% if logged_in? %>
   
 app/views/layouts/application.html.erb:10
+Started GET "/login" for 172.18.0.1 at 2022-12-06 11:51:18 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  [1m[36mEmployee Load (6.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 930)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 2182)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 6.0ms | Allocations: 4176)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>NewsAndEmployeeIntroduction</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= #javascript_pack_tag 'application' %>
+  </head>
+  <body>
+    <% if logged_in? %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    <div class='container'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>NewsAndEmployeeIntroduction</title>
+5:        <meta name="viewport" content="width=device-width,initial-scale=1">
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:    
+9:        <%= stylesheet_link_tag 'application', media: 'all' %>
+10:        <%= #javascript_pack_tag 'application' %>
+11:      </head>
+12:      <body>
+13:        <% if logged_in? %>
+14:          <%= render 'layouts/header' %>
+15:        <% end %>
+16:        <div class='container'>
+17:          <%= yield %>
+18:        </div>
+19:      </body>
+20:    </html>
+  
+app/views/layouts/application.html.erb:11: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp options - hadr
+app/views/layouts/application.html.erb:14: end pattern with unmatched parenthesis: /head>
+app/views/layouts/application.html.erb:14: syntax error, unexpected string literal, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/layouts/application.html.erb:23: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:11: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp options - hadr
+app/views/layouts/application.html.erb:14: end pattern with unmatched parenthesis: /head>
+app/views/layouts/application.html.erb:14: syntax error, unexpected string literal, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/layouts/application.html.erb:23: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:11: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp options - hadr
+app/views/layouts/application.html.erb:14: end pattern with unmatched parenthesis: /head>
+app/views/layouts/application.html.erb:14: syntax error, unexpected string literal, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/layouts/application.html.erb:23: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:11: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp options - hadr
+app/views/layouts/application.html.erb:14: end pattern with unmatched parenthesis: /head>
+app/views/layouts/application.html.erb:14: syntax error, unexpected string literal, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/layouts/application.html.erb:23: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:11: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp options - hadr
+app/views/layouts/application.html.erb:14: end pattern with unmatched parenthesis: /head>
+app/views/layouts/application.html.erb:14: syntax error, unexpected string literal, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/layouts/application.html.erb:23: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:11: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp options - hadr
+app/views/layouts/application.html.erb:14: end pattern with unmatched parenthesis: /head>
+app/views/layouts/application.html.erb:14: syntax error, unexpected string literal, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/layouts/application.html.erb:23: syntax error, unexpected `end', expecting ')'
+Started GET "/login" for 172.18.0.1 at 2022-12-06 11:51:39 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  [1m[36mEmployee Load (2.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 930)
+  [1m[36mCACHE Employee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 57.5ms | Allocations: 3662)
+Completed 200 OK in 74ms (Views: 62.9ms | ActiveRecord: 2.4ms | Allocations: 5685)
+
+
+Started GET "/login" for 172.18.0.1 at 2022-12-06 11:51:46 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  [1m[36mEmployee Load (2.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 908)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layout layouts/application.html.erb (Duration: 15325.0ms | Allocations: 6082)
+Completed 500 Internal Server Error in 15338ms (ActiveRecord: 2.1ms | Allocations: 8209)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all' %>
+    10:     <%= javascript_pack_tag 'application' %>
+    11:   </head>
+    12:   <body>
+    13:     <% if logged_in? %>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/login" for 172.18.0.1 at 2022-12-06 11:55:26 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  [1m[36mEmployee Load (2.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 445)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layout layouts/application.html.erb (Duration: 12512.6ms | Allocations: 4833)
+Completed 500 Internal Server Error in 12525ms (ActiveRecord: 2.7ms | Allocations: 6108)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all' %>
+    10:     <%= javascript_pack_tag 'application' %>
+    11:   </head>
+    12:   <body>
+    13:     <% if logged_in? %>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/login" for 172.18.0.1 at 2022-12-06 12:22:15 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mEmployee Load (2.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 445)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layout layouts/application.html.erb (Duration: 13186.8ms | Allocations: 6264)
+Completed 500 Internal Server Error in 13209ms (ActiveRecord: 6.1ms | Allocations: 8086)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all' %>
+    10:   </head>
+    11:   <body>
+    12:     <% if logged_in? %>
+    13:       <%= render 'layouts/header' %>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/login" for 172.18.0.1 at 2022-12-06 12:22:29 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  [1m[36mEmployee Load (2.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 908)
+  [1m[36mCACHE Employee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 3593)
+Completed 200 OK in 52ms (Views: 43.2ms | ActiveRecord: 2.6ms | Allocations: 5491)
+
+
+Started POST "/login" for 172.18.0.1 at 2022-12-06 12:28:29 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "employees"=>{"account"=>"yamada", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+  [1m[36mEmployee Load (3.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."account" = ? AND "employees"."password" = ? LIMIT ?[0m  [["account", "yamada"], ["password", "hogehoge"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 48ms (ActiveRecord: 15.5ms | Allocations: 7874)
+
+
+Started GET "/" for 172.18.0.1 at 2022-12-06 12:28:29 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (2.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (2.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (4.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (3.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 189.7ms | Allocations: 15867)
+[Webpacker] Compiling...
+Started POST "/login" for 172.18.0.1 at 2022-12-06 12:28:32 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "employees"=>{"account"=>"yamada", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+  [1m[36mEmployee Load (2.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."account" = ? AND "employees"."password" = ? LIMIT ?[0m  [["account", "yamada"], ["password", "hogehoge"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 5.6ms | Allocations: 1717)
+
+
+Started GET "/" for 172.18.0.1 at 2022-12-06 12:28:32 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (2.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (3.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (2.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (2.5ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 26.2ms | Allocations: 2802)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layouts/_header.html.erb (Duration: 12670.1ms | Allocations: 15954)
+  Rendered layout layouts/application.html.erb (Duration: 12899.5ms | Allocations: 33730)
+Completed 500 Internal Server Error in 12921ms (ActiveRecord: 32.9ms | Allocations: 35580)
+
+
+  
+ActionView::Template::Error (Webpacker can't find header.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    1: <%= javascript_pack_tag "header.js" %>
+    2: <div id='menu'>
+    3:   <ul class='left_menu'>
+    4:     <li><%= link_to 'お知らせ', '#' %></li>
+  
+app/views/layouts/_header.html.erb:1
+app/views/layouts/application.html.erb:13
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layouts/_header.html.erb (Duration: 12642.3ms | Allocations: 203547)
+  Rendered layout layouts/application.html.erb (Duration: 12703.7ms | Allocations: 207910)
+Completed 500 Internal Server Error in 12717ms (ActiveRecord: 11.3ms | Allocations: 209076)
+
+
+  
+ActionView::Template::Error (Webpacker can't find header.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    1: <%= javascript_pack_tag "header.js" %>
+    2: <div id='menu'>
+    3:   <ul class='left_menu'>
+    4:     <li><%= link_to 'お知らせ', '#' %></li>
+  
+app/views/layouts/_header.html.erb:1
+app/views/layouts/application.html.erb:13
+Started GET "/" for 172.18.0.1 at 2022-12-06 12:28:53 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (2.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (3.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (2.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (4.0ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 32.8ms | Allocations: 2743)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layouts/_header.html.erb (Duration: 11761.3ms | Allocations: 4038)
+  Rendered layout layouts/application.html.erb (Duration: 11827.2ms | Allocations: 8347)
+Completed 500 Internal Server Error in 11841ms (ActiveRecord: 11.9ms | Allocations: 9439)
+
+
+  
+ActionView::Template::Error (Webpacker can't find header.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    1: <%= javascript_pack_tag "header.js" %>
+    2: <div id='menu'>
+    3:   <ul class='left_menu'>
+    4:     <li><%= link_to 'お知らせ', '#' %></li>
+  
+app/views/layouts/_header.html.erb:1
+app/views/layouts/application.html.erb:13
+Started GET "/" for 172.18.0.1 at 2022-12-06 12:43:05 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mEmployee Load (2.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (2.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (3.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (2.6ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 26.2ms | Allocations: 3574)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layout layouts/application.html.erb (Duration: 11653.8ms | Allocations: 8420)
+Completed 500 Internal Server Error in 11680ms (ActiveRecord: 12.9ms | Allocations: 10925)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all' %>
+    10:     <%= javascript_pack_tag 'application' %>
+    11:   </head>
+    12:   <body>
+    13:     <% if logged_in? %>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 172.18.0.1 at 2022-12-06 12:43:43 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (2.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (2.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (3.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (2.4ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 28.4ms | Allocations: 2739)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layout layouts/application.html.erb (Duration: 11722.2ms | Allocations: 7323)
+Completed 500 Internal Server Error in 11734ms (ActiveRecord: 10.7ms | Allocations: 8497)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all' %>
+    10:     <%= javascript_pack_tag 'application' %>
+    11:   </head>
+    12:   <body>
+    13:     <% if logged_in? %>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 172.18.0.1 at 2022-12-06 12:44:24 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (2.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (2.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (2.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (2.7ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 26.4ms | Allocations: 3545)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/news_and_employee_introduction/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:452:10
+    at /news_and_employee_introduction/node_modules/webpack/lib/NormalModule.js:323:13
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/news_and_employee_introduction/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /news_and_employee_introduction/node_modules/babel-loader/lib/index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+
+  Rendered layouts/_header.html.erb (Duration: 11554.1ms | Allocations: 3409)
+  Rendered layout layouts/application.html.erb (Duration: 11615.0ms | Allocations: 9019)
+Completed 500 Internal Server Error in 11629ms (ActiveRecord: 10.1ms | Allocations: 10888)
+
+
+  
+ActionView::Template::Error (Webpacker can't find header.js in /news_and_employee_introduction/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    1: <%= javascript_pack_tag "header.js" %>
+    2: <div id='menu'>
+    3:   <ul class='left_menu'>
+    4:     <li><%= link_to 'お知らせ', '#' %></li>
+  
+app/views/layouts/_header.html.erb:1
+app/views/layouts/application.html.erb:13
+Started GET "/" for 172.18.0.1 at 2022-12-06 12:45:04 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (4.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (3.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (2.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (2.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 27.5ms | Allocations: 3542)
+  Rendered layouts/_header.html.erb (Duration: 4.3ms | Allocations: 282)
+  Rendered layout layouts/application.html.erb (Duration: 64.5ms | Allocations: 5892)
+Completed 200 OK in 81ms (Views: 61.4ms | ActiveRecord: 12.2ms | Allocations: 7888)
+
+
+Started GET "/" for 172.18.0.1 at 2022-12-06 13:04:06 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mEmployee Load (2.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (2.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (2.2ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (2.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 22.5ms | Allocations: 3577)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 31.0ms | Allocations: 1549)
+  Rendered layout layouts/application.html.erb (Duration: 133.8ms | Allocations: 8564)
+Completed 200 OK in 157ms (Views: 132.5ms | ActiveRecord: 11.6ms | Allocations: 11227)
+
+
