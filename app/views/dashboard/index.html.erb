@@ -14,7 +14,12 @@
         </tr>
     </thead>
     <tbody>
+
         <% @articles.each do |article| %>
+            <tr class="employee">
+            <th><%= article.title %></th>
+            <th><%= article.content %></th>
+            </tr>
         <% end %>
     </tbody>
   </table>
