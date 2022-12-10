@@ -12,7 +12,7 @@ class DashboardController < ApplicationController
   def create
     @article=Article.new(title:params[:title],content:params[:content],author:session[:user_id])
     if @article.save
-      flash[:notice]="家事内容を作成しました"
+      flash[:notice]="記事を投稿しました"
       redirect_to("/dashboard/index")
     else
       render("dashboard/new")
