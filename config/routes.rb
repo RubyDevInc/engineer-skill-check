@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'employees#index'
 
   get 'dashboard/index' => "dashboard#index"
+  get "dashboard/new"=>"dashboard#new"
+  post "dashboard/create" => "dashboard#create"
+
 
 
   get    '/login',   to: 'sessions#new'
