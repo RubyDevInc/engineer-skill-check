@@ -1,5 +1,4 @@
 class DashboardController < ApplicationController
-  before_action :set_employee, only: %i(edit update destroy)
 
   def index
     @articles=Article.all
@@ -19,8 +18,10 @@ class DashboardController < ApplicationController
     end
   end
 
-  def set_employee
-    @employee = Employee.find(params["id"])
+
+  def show
+    @article=Article.find_by(id:params[:id])
   end
+
 
 end

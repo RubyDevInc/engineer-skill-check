@@ -17,8 +17,8 @@
 
         <% @articles.each do |article| %>
             <tr class="employee">
-            <th><%= article.title %></th>
-            <th><%= article.content %></th>
+            <th><%= link_to(article.title,"/dashboard/#{article.id}") %></th>
+            <th><%= article.created_at.in_time_zone('Tokyo').strftime("%Y年%-m月%-d日") %></th>
             </tr>
         <% end %>
     </tbody>
