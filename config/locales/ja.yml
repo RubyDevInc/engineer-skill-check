@@ -16,6 +16,11 @@ ja:
           attributes:
             profile:
               too_short: を入力してください
+      models:
+        article:
+          attributes:
+            title:
+              too_short: が入力されていません
     models:
       employee: 社員
       department: 部署
