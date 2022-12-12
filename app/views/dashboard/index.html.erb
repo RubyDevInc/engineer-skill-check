@@ -10,7 +10,8 @@
   <table class="employee_table">
     <thead>
         <tr>
-            <th><%= sort_order "number", "タイトル" %></th>
+        <th>タイトル</th>
+        <th><%= link_to("公開日","/dashboard/sort/#{@sort}") %></th>
         </tr>
     </thead>
     <tbody>

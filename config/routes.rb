@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'dashboard/index' => "dashboard#index"
   get "dashboard/new"=>"dashboard#new"
   post "dashboard/create" => "dashboard#create"
-  get "dashboard/:id" => "dashboard#show"
 
+  get "dashboard/sort/:sort" => "dashboard#sort"
+  get "dashboard/:id" => "dashboard#show"
 
 
 
