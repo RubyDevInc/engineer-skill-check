@@ -3,6 +3,15 @@
     <%= form_tag("/dashboard/#{@article.id}/update") do %>
       <div class="form">
         <div class="form-body">
+        
+          <% if @article.errors.present? %>
+              <ul>
+              <% @article.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+              </ul>
+          <% end %>
+
           <p>タイトル</p>
           <input name="title" value= "<%= @article.title %>">
 

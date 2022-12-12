@@ -3,6 +3,8 @@
     <p><%= flash.notice %></p>
   <% end %>
 
+  
+
   <% if current_user.news_posting_auth %>
     <p class="new_employee"><%= link_to '新規追加', "/dashboard/new", class: 'btn' %></p>
   <% end %>
