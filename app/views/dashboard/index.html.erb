@@ -11,7 +11,7 @@
     <thead>
         <tr>
         <th>タイトル</th>
-        <th><%= link_to("公開日","/dashboard/sort/#{@sort}") %></th>
+        <th><%= link_to("公開日","/dashboard/#{@sort}/sort") %></th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
                 <th><%= article.created_at.in_time_zone('Tokyo').strftime("%Y年%-m月%-d日") %></th>
                 <% if current_user.id==article.author %>
                     <th class="btn_th"><%= link_to '編集', class: 'btn' %></th>
-                    <th class="btn_th"><%= link_to '削除', class: 'btn' %></th>
+                    <th class="btn_th"><%= link_to '削除', "/dashboard/#{article.id}/destroy",method: :post, data: { confirm: "記事「#{article.title} 」を削除します。よろしいですか？" },  class: 'btn' %></th>
                 <% end %>
             </tr>
         <% end %>

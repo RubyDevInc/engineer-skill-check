@@ -39,5 +39,13 @@ class DashboardController < ApplicationController
     render("dashboard/index")
   end
 
+  def destroy
+    @article=Article.find_by(id: params[:id])
+    @article.destroy
+    flash[:notice]="記事を削除しました"
+    redirect_to("/dashboard/index")
+
+  end
+
 
 end
