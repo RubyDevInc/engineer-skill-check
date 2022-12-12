@@ -1,0 +1,11 @@
+.profile_space
+  p.new_employee
+    = link_to '一覧に戻る', "/dashboard/index", class: 'btn'
+  .row
+    span.label
+      | タイトル
+    span
+      = @article.title
+  span.label
+  span.profile_value
+    = @article.content
