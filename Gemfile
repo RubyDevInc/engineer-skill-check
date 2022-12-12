@@ -23,11 +23,9 @@ group :development, :test do
   gem 'spring-commands-rspec'
 end
 
-group :development, :test do
-  # 略
-  gem 'ruby-debug-ide'
-  gem 'debase'
-end
+gem 'ruby-debug-ide'
+gem 'debase'
+
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
