@@ -17,6 +17,18 @@ gem 'webpacker', '~> 5.0'
 gem 'slim-rails'
 
 gem 'html2slim'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+end
+
+group :development, :test do
+  # 略
+  gem 'ruby-debug-ide'
+  gem 'debase'
+end
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
