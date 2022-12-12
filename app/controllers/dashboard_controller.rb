@@ -35,7 +35,6 @@ class DashboardController < ApplicationController
     else
       @sort="desc"
     end
-
     render("dashboard/index")
   end
 
@@ -44,8 +43,24 @@ class DashboardController < ApplicationController
     @article.destroy
     flash[:notice]="記事を削除しました"
     redirect_to("/dashboard/index")
-
   end
+
+  def edit
+    @article=Article.find_by(id: params[:id])
+  end
+
+  def update
+    @article=Article.find_by(id: params[:id])
+    @article.content=params[:content]
+    @article.title=params[:title]
+    if @article.save
+      flash[:notice]="記事を編集しました"
+      redirect_to("/dashboard/index")
+    else
+      render("dashboard/edit")
+    end
+  end
+
 
 
 end

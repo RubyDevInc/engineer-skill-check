@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "dashboard/create" => "dashboard#create"
   post "dashboard/:id/destroy" => "dashboard#destroy"
   get "dashboard/:sort/sort" => "dashboard#sort"
+  get "dashboard/:id/edit" => "dashboard#edit"
+  post "dashboard/:id/update" => "dashboard#update"
   get "dashboard/:id" => "dashboard#show"
 
 
