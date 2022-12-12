@@ -1,16 +1,10 @@
-<div class="main posts-new">
-<p class="new_employee"><%= link_to '一覧に戻る', "/dashboard/index", class: 'btn' %></p>
-
-  <div class="container">
-
-      <div class="form">
-        <div class="form-body">
-          <p>タイトル</p>
-          <%= @article.title%>
-          <p></p>
-          <%= @article.content%>
-        </div>
-        </div>
-      </div>
-  </div>
+<div class="profile_space">
+    <p class="new_employee"><%= link_to '一覧に戻る', "/dashboard/index", class: 'btn' %></p>
+    <div class="row">
+        <span class="label">タイトル</span>
+        <span><%= @article.title%></span>
+    </div>
+    <div class="profile_value">
+        <%= @article.content%>
+    </div>
 </div>
