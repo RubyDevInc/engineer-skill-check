@@ -4,7 +4,6 @@ class DashboardController < ApplicationController
     @articles=Article.all.order(created_at:"desc")
     if @articles.first.created_at > @articles.last.created_at
       @sort="asc"
-      @sort="asc"
     else
       @sort="desc"
     end

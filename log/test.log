@@ -1,0 +1,138 @@
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "content" text NOT NULL, "author" integer NOT NULL, "deleted_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "deleted_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "department_id" integer NOT NULL, "office_id" integer NOT NULL, "number" varchar NOT NULL, "last_name" varchar NOT NULL, "first_name" varchar NOT NULL, "account" varchar NOT NULL, "password" varchar NOT NULL, "email" varchar NOT NULL, "date_of_joining" date NOT NULL, "employee_info_manage_auth" boolean DEFAULT 0 NOT NULL, "deleted_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "news_posting_auth" boolean)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_employees_on_department_id" ON "employees" ("department_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_employees_on_office_id" ON "employees" ("office_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "offices"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "offices" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "deleted_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "profiles"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "employee_id" integer NOT NULL, "profile" text NOT NULL, "deleted_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_profiles_on_employee_id" ON "profiles" ("employee_id")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aemployees" ("id" integer NOT NULL PRIMARY KEY, "department_id" integer NOT NULL, "office_id" integer NOT NULL, "number" varchar NOT NULL, "last_name" varchar NOT NULL, "first_name" varchar NOT NULL, "account" varchar NOT NULL, "password" varchar NOT NULL, "email" varchar NOT NULL, "date_of_joining" date NOT NULL, "employee_info_manage_auth" boolean DEFAULT 0 NOT NULL, "deleted_at" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "news_posting_auth" boolean DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aemployees_on_office_id" ON "aemployees" ("office_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aemployees_on_department_id" ON "aemployees" ("department_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aemployees" ("id","department_id","office_id","number","last_name","first_name","account","password","email","date_of_joining","employee_info_manage_auth","deleted_at","created_at","updated_at","news_posting_auth")
+                     SELECT "id","department_id","office_id","number","last_name","first_name","account","password","email","date_of_joining","employee_info_manage_auth","deleted_at","created_at","updated_at","news_posting_auth" FROM "employees"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "employees"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer NOT NULL PRIMARY KEY, "department_id" integer NOT NULL, "office_id" integer NOT NULL, "number" varchar NOT NULL, "last_name" varchar NOT NULL, "first_name" varchar NOT NULL, "account" varchar NOT NULL, "password" varchar NOT NULL, "email" varchar NOT NULL, "date_of_joining" date NOT NULL, "employee_info_manage_auth" boolean DEFAULT 0 NOT NULL, "deleted_at" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "news_posting_auth" boolean DEFAULT NULL, CONSTRAINT "fk_rails_0025f65a97"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_employees_on_department_id" ON "employees" ("department_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_employees_on_office_id" ON "employees" ("office_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "employees" ("id","department_id","office_id","number","last_name","first_name","account","password","email","date_of_joining","employee_info_manage_auth","deleted_at","created_at","updated_at","news_posting_auth")
+                     SELECT "id","department_id","office_id","number","last_name","first_name","account","password","email","date_of_joining","employee_info_manage_auth","deleted_at","created_at","updated_at","news_posting_auth" FROM "aemployees"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aemployees"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aemployees" ("id" integer NOT NULL PRIMARY KEY, "department_id" integer NOT NULL, "office_id" integer NOT NULL, "number" varchar NOT NULL, "last_name" varchar NOT NULL, "first_name" varchar NOT NULL, "account" varchar NOT NULL, "password" varchar NOT NULL, "email" varchar NOT NULL, "date_of_joining" date NOT NULL, "employee_info_manage_auth" boolean DEFAULT 0 NOT NULL, "deleted_at" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "news_posting_auth" boolean DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aemployees_on_office_id" ON "aemployees" ("office_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_aemployees_on_department_id" ON "aemployees" ("department_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aemployees" ("id","department_id","office_id","number","last_name","first_name","account","password","email","date_of_joining","employee_info_manage_auth","deleted_at","created_at","updated_at","news_posting_auth")
+                     SELECT "id","department_id","office_id","number","last_name","first_name","account","password","email","date_of_joining","employee_info_manage_auth","deleted_at","created_at","updated_at","news_posting_auth" FROM "employees"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "employees"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer NOT NULL PRIMARY KEY, "department_id" integer NOT NULL, "office_id" integer NOT NULL, "number" varchar NOT NULL, "last_name" varchar NOT NULL, "first_name" varchar NOT NULL, "account" varchar NOT NULL, "password" varchar NOT NULL, "email" varchar NOT NULL, "date_of_joining" date NOT NULL, "employee_info_manage_auth" boolean DEFAULT 0 NOT NULL, "deleted_at" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "news_posting_auth" boolean DEFAULT NULL, CONSTRAINT "fk_rails_0025f65a97"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+, CONSTRAINT "fk_rails_e87ac712d3"
+FOREIGN KEY ("office_id")
+  REFERENCES "offices" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_employees_on_department_id" ON "employees" ("department_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_employees_on_office_id" ON "employees" ("office_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "employees" ("id","department_id","office_id","number","last_name","first_name","account","password","email","date_of_joining","employee_info_manage_auth","deleted_at","created_at","updated_at","news_posting_auth")
+                     SELECT "id","department_id","office_id","number","last_name","first_name","account","password","email","date_of_joining","employee_info_manage_auth","deleted_at","created_at","updated_at","news_posting_auth" FROM "aemployees"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aemployees"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aprofiles" ("id" integer NOT NULL PRIMARY KEY, "employee_id" integer NOT NULL, "profile" text NOT NULL, "deleted_at" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aprofiles_on_employee_id" ON "aprofiles" ("employee_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aprofiles" ("id","employee_id","profile","deleted_at","created_at","updated_at")
+                     SELECT "id","employee_id","profile","deleted_at","created_at","updated_at" FROM "profiles"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "profiles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" integer NOT NULL PRIMARY KEY, "employee_id" integer NOT NULL, "profile" text NOT NULL, "deleted_at" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_3b84e63c66"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_profiles_on_employee_id" ON "profiles" ("employee_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "profiles" ("id","employee_id","profile","deleted_at","created_at","updated_at")
+                     SELECT "id","employee_id","profile","deleted_at","created_at","updated_at" FROM "aprofiles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aprofiles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221207121612)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211020103118),
+(20211020103151),
+(20211020103241),
+(20211020112406),
+(20221206140647);
+
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-12-13 01:44:19.477705"], ["updated_at", "2022-12-13 01:44:19.477705"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "c9da5d6c249fa977a8ad8d578f60e1f5dc19c1fc"], ["created_at", "2022-12-13 01:44:19.485480"], ["updated_at", "2022-12-13 01:44:19.485480"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
