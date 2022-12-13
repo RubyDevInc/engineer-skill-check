@@ -3,30 +3,29 @@
     <p><%= flash.notice %></p>
   <% end %>
 
-
   <% if current_user.news_posting_auth %>
     <p class="new_employee"><%= link_to '新規追加', "/dashboard/new", class: 'btn' %></p>
   <% end %>
 
   <table class="employee_table">
     <thead>
-        <tr>
+      <tr>
         <th>タイトル</th>
         <th><%= link_to("公開日","/dashboard/#{@sort}/sort") %></th>
-        </tr>
+      </tr>
     </thead>
-    <tbody>
 
-        <% @articles.each do |article| %>
-            <tr class="employee">
-                <th><%= link_to(article.title,"/dashboard/#{article.id}") %></th>
-                <th><%= article.created_at.in_time_zone('Tokyo').strftime("%Y年%-m月%-d日") %></th>
-                <% if current_user.id==article.author %>
-                    <th class="btn_th"><%= link_to '編集', "/dashboard/#{article.id}/edit",class: 'btn' %></th>
-                    <th class="btn_th"><%= link_to '削除', "/dashboard/#{article.id}/destroy",method: :post, data: { confirm: "記事「#{article.title} 」を削除します。よろしいですか？" },  class: 'btn' %></th>
-                <% end %>
-            </tr>
-        <% end %>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr class="employee">
+          <th><%= link_to(article.title,"/dashboard/#{article.id}") %></th>
+          <th><%= article.created_at.in_time_zone('Tokyo').strftime("%Y年%-m月%-d日") %></th>
+          <% if current_user.id==article.author %>
+            <th class="btn_th"><%= link_to '編集', "/dashboard/#{article.id}/edit",class: 'btn' %></th>
+            <th class="btn_th"><%= link_to '削除', "/dashboard/#{article.id}/destroy",method: :post, data: { confirm: "記事「#{article.title} 」を削除します。よろしいですか？" },  class: 'btn' %></th>
+          <% end %>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

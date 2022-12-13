@@ -23,7 +23,6 @@ class DashboardController < ApplicationController
     end
   end
 
-
   def show
     @article=Article.find_by(id:params[:id])
   end
@@ -60,7 +59,5 @@ class DashboardController < ApplicationController
       render("dashboard/edit")
     end
   end
-
-
 
 end
