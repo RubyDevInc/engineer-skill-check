@@ -33315,3 +33315,243 @@ Processing by DashboardController#index as HTML
 Completed 200 OK in 127ms (Views: 103.6ms | ActiveRecord: 10.2ms | Allocations: 10556)
 
 
+Started GET "/employees" for 172.18.0.1 at 2022-12-13 12:31:00 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mEmployee Load (2.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (3.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (3.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mProfile Load (3.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL ORDER BY "profiles"."id" ASC LIMIT ?[0m  [["employee_id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:23
+  [1m[36mDepartment Load (2.4ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  [1m[36mProfile Load (3.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 2]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (2.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  [1m[36mProfile Load (2.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 3]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  [1m[36mProfile Load (2.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 4]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 138.7ms | Allocations: 19234)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 27.8ms | Allocations: 1361)
+  Rendered layout layouts/application.html.erb (Duration: 227.7ms | Allocations: 23613)
+Completed 200 OK in 300ms (Views: 190.4ms | ActiveRecord: 60.2ms | Allocations: 35182)
+
+
+Started GET "/employees/new" for 172.18.0.1 at 2022-12-13 12:31:06 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#new as HTML
+  [1m[36mEmployee Load (2.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  [1m[36mDepartment Load (2.8ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  ↳ app/views/employees/_form.html.erb:46
+  [1m[36mOffice Load (3.6ms)[0m  [1m[34mSELECT "offices".* FROM "offices"[0m
+  ↳ app/views/employees/_form.html.erb:51
+  Rendered employees/_form.html.erb (Duration: 302.2ms | Allocations: 12563)
+  Rendered employees/new.html.erb within layouts/application (Duration: 308.8ms | Allocations: 12920)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 25.8ms | Allocations: 1362)
+  Rendered layout layouts/application.html.erb (Duration: 394.1ms | Allocations: 17312)
+Completed 200 OK in 417ms (Views: 379.4ms | ActiveRecord: 20.2ms | Allocations: 19563)
+
+
+Started GET "/employees" for 172.18.0.1 at 2022-12-13 12:31:08 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (3.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (2.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."deleted_at" IS NULL ORDER BY number asc[0m
+  ↳ app/views/employees/index.html.erb:19
+  [1m[36mProfile Load (3.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 1]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mProfile Load (2.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL ORDER BY "profiles"."id" ASC LIMIT ?[0m  [["employee_id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:23
+  [1m[36mDepartment Load (2.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  [1m[36mProfile Load (2.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 2]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mDepartment Load (2.5ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  [1m[36mProfile Load (3.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 3]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  [1m[36mProfile Load (2.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."employee_id" = ? AND "profiles"."deleted_at" IS NULL[0m  [["employee_id", 4]]
+  ↳ app/views/employees/index.html.erb:21
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/employees/index.html.erb:31
+  Rendered employees/index.html.erb within layouts/application (Duration: 79.1ms | Allocations: 9046)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 28.7ms | Allocations: 1352)
+  Rendered layout layouts/application.html.erb (Duration: 168.8ms | Allocations: 13278)
+Completed 200 OK in 182ms (Views: 150.9ms | ActiveRecord: 24.5ms | Allocations: 14581)
+
+
+Started GET "/dashboard/index" for 172.18.0.1 at 2022-12-13 12:31:09 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardController#index as HTML
+  [1m[36mEmployee Load (3.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mArticle Load (2.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:5:in `index'
+  [1m[36mArticle Load (2.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/views/dashboard/index.html.erb:19
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1988)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 27.2ms | Allocations: 1386)
+  Rendered layout layouts/application.html.erb (Duration: 92.4ms | Allocations: 6474)
+Completed 200 OK in 145ms (Views: 93.8ms | ActiveRecord: 22.0ms | Allocations: 13077)
+
+
+Started GET "/dashboard/asc/sort" for 172.18.0.1 at 2022-12-13 12:31:14 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardController#sort as HTML
+  Parameters: {"sort"=>"asc"}
+  [1m[36mEmployee Load (2.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" ASC[0m
+  ↳ app/views/dashboard/index.html.erb:19
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1797)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 25.7ms | Allocations: 1360)
+  Rendered layout layouts/application.html.erb (Duration: 91.7ms | Allocations: 6012)
+Completed 200 OK in 101ms (Views: 91.1ms | ActiveRecord: 5.6ms | Allocations: 7139)
+
+
+Started GET "/dashboard/desc/sort" for 172.18.0.1 at 2022-12-13 12:31:15 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardController#sort as HTML
+  Parameters: {"sort"=>"desc"}
+  [1m[36mEmployee Load (2.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/views/dashboard/index.html.erb:19
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1778)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 35.0ms | Allocations: 1360)
+  Rendered layout layouts/application.html.erb (Duration: 102.5ms | Allocations: 5993)
+Completed 200 OK in 113ms (Views: 103.3ms | ActiveRecord: 4.5ms | Allocations: 7022)
+
+
+Started GET "/dashboard/new" for 172.18.0.1 at 2022-12-13 12:31:17 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardController#new as HTML
+  [1m[36mEmployee Load (2.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/new.html.erb within layouts/application
+  Rendered dashboard/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 440)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 29.0ms | Allocations: 1366)
+  Rendered layout layouts/application.html.erb (Duration: 92.8ms | Allocations: 4674)
+Completed 200 OK in 106ms (Views: 96.4ms | ActiveRecord: 2.2ms | Allocations: 5862)
+
+
+Started POST "/dashboard/create" for 172.18.0.1 at 2022-12-13 12:31:28 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"終了", "content"=>"大体完了"}
+  [1m[36mEmployee Load (2.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/dashboard_controller.rb:18:in `create'
+  [1m[36mArticle Create (19.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "終了"], ["content", "大体完了"], ["author", 1], ["created_at", "2022-12-13 12:31:28.078802"], ["updated_at", "2022-12-13 12:31:28.078802"]]
+  ↳ app/controllers/dashboard_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/dashboard_controller.rb:18:in `create'
+Redirected to http://localhost:3000/dashboard/index
+Completed 302 Found in 63ms (ActiveRecord: 36.9ms | Allocations: 5196)
+
+
+Started GET "/dashboard/index" for 172.18.0.1 at 2022-12-13 12:31:28 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardController#index as HTML
+  [1m[36mEmployee Load (6.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mArticle Load (2.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:5:in `index'
+  [1m[36mArticle Load (4.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/views/dashboard/index.html.erb:19
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1886)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 36.5ms | Allocations: 1369)
+  Rendered layout layouts/application.html.erb (Duration: 128.3ms | Allocations: 6206)
+Completed 200 OK in 162ms (Views: 129.5ms | ActiveRecord: 17.0ms | Allocations: 8777)
+
+
+Started GET "/dashboard/29" for 172.18.0.1 at 2022-12-13 12:31:31 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mEmployee Load (2.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mArticle Load (2.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:27:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/show.html.slim within layouts/application
+  Rendered dashboard/show.html.slim within layouts/application (Duration: 5.6ms | Allocations: 3569)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 27.2ms | Allocations: 1366)
+  Rendered layout layouts/application.html.erb (Duration: 89.8ms | Allocations: 7814)
+Completed 200 OK in 109ms (Views: 93.3ms | ActiveRecord: 4.8ms | Allocations: 9651)
+
+
+Started GET "/dashboard/index" for 172.18.0.1 at 2022-12-13 12:31:34 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DashboardController#index as HTML
+  [1m[36mEmployee Load (2.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:7:in `current_user'
+  [1m[36mArticle Load (2.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:5:in `index'
+  [1m[36mArticle Load (3.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:5:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/views/dashboard/index.html.erb:19
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1880)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 27.3ms | Allocations: 1366)
+  Rendered layout layouts/application.html.erb (Duration: 94.6ms | Allocations: 6121)
+Completed 200 OK in 119ms (Views: 95.3ms | ActiveRecord: 10.7ms | Allocations: 8408)
+
+
