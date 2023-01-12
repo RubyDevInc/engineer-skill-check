@@ -40,6 +40,10 @@ class SessionsController < ApplicationController
       flash.now[:alert] = 'メールアドレスが入力されていません。'
       return false
     end
+    if employee_params[:date_of_joining].blank?
+      flash.now[:alert] = '入社年月日が入力されていません。'
+      return false
+    end
     true
   end
 
