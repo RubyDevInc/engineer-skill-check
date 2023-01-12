@@ -10,6 +10,9 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
   end
 
+  def edit
+  end
+
   def create
     @employee = Employee.new(employee_params)
 
@@ -22,12 +25,7 @@ class EmployeesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
-    add_params
-
     if @employee.update(employee_params)
       redirect_to employees_url, notice: "社員「#{@employee.last_name} #{@employee.first_name}」を更新しました。"
     else
@@ -37,7 +35,7 @@ class EmployeesController < ApplicationController
 
   def destroy
     ActiveRecord::Base.transaction do
-      now = Time.now
+      now = Time.zone.now
       @employee.update_column(:deleted_at, now)
       @employee.profiles.active.first.update_column(:deleted_at, now) if @employee.profiles.active.present?
     end
@@ -48,7 +46,7 @@ class EmployeesController < ApplicationController
   private
 
   def employee_params
-    params.require(:employee).permit(:number, :last_name, :first_name, :account, :password, :department_id, :office_id, :employee_info_manage_auth)
+    params.require(:employee).permit(:number, :last_name, :first_name, :account, :password, :email, :date_of_joining, :department_id, :office_id, :employee_info_manage_auth)
   end
 
   def set_employee
@@ -58,16 +56,6 @@ class EmployeesController < ApplicationController
   def set_form_option
     @departments = Department.all
     @offices = Office.all
-  end
-
-  # 現在、メールアドレスと入社日は入力できないため、ここで追加しています。
-  def add_params
-    unless @employee.email
-      @employee.email = 'sample@example.com'
-    end
-    unless @employee.date_of_joining
-      @employee.date_of_joining = Date.today
-    end
   end
 
   def sort_column
