@@ -26,8 +26,6 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    # add_params
-
     if @employee.update(employee_params)
       redirect_to employees_url, notice: "社員「#{@employee.last_name} #{@employee.first_name}」を更新しました。"
     else
@@ -59,13 +57,6 @@ class EmployeesController < ApplicationController
     @departments = Department.all
     @offices = Office.all
   end
-
-  # 現在、メールアドレスと入社日は入力できないため、ここで追加しています。
-  # def add_params
-  #   unless @employee.date_of_joining
-  #     @employee.date_of_joining = Date.today
-  #   end
-  # end
 
   def sort_column
     params[:sort] ? params[:sort] : 'number'
