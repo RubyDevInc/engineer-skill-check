@@ -10,6 +10,9 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
   end
 
+  def edit
+  end
+
   def create
     @employee = Employee.new(employee_params)
 
@@ -20,9 +23,6 @@ class EmployeesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update
@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
 
   def destroy
     ActiveRecord::Base.transaction do
-      now = Time.now
+      now = Time.zone.now
       @employee.update_column(:deleted_at, now)
       @employee.profiles.active.first.update_column(:deleted_at, now) if @employee.profiles.active.present?
     end
