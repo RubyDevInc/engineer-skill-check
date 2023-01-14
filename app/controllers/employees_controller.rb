@@ -16,8 +16,6 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
 
-    add_params
-
     if @employee.save
       redirect_to employees_url, notice: "社員「#{@employee.last_name} #{@employee.first_name}」を登録しました。"
     else
