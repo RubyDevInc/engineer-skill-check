@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to articles_url
+      redirect_to articles_url  notice: "「#{@article.title}」を登録しました。"
     else
       render :new
     end
@@ -34,6 +34,12 @@ class ArticlesController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :content)
   end
 
 
