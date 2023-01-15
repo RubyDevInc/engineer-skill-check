@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.active.order
+    @articles = Article.active
   end
 
   def show
