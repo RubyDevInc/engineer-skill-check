@@ -17,8 +17,8 @@
     <tbody>
     <% @articles.each do |article| %>
       <tr class="article">
-        <% if article.active.present? %>
-          <% if article.employee_id == current_user %>
+        <% if article.present? %>
+          <% if article.author_id == current_user %>
             <th><%= link_to article.title, edit_article_path(article) %></th>
           <% else %>
             <th><%= link_to article.title, article_path(article) %></th>
