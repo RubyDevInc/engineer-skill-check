@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i(edit update destroy)
+  before_action :set_article, only: %i(edit update destroy show)
 
   def index
     @articles = Article.active
   end
 
   def show
+    @articles = Article.active
   end
 
   def new
@@ -16,7 +17,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
 
     if @article.save
-      redirect_to articles_url  notice: "「#{@article.title}」を登録しました。"
+      redirect_to articles_url, notice: "「#{@article.title}」を登録しました。"
     else
       render :new
     end

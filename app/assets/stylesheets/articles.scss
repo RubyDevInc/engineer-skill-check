@@ -1,5 +1,24 @@
+.article_space {
+  justify-content: center;
+  width: 90%;
+
+  .label {
+    margin-right: 30px;
+  }
+
+  .title {
+    margin: 5px;
+  }
+
+  .content {
+    height: 50vh;
+    padding: 10px;
+  }
+
+}
+
 .article_index {
-  .new_article {
+  .new_article{
     text-align: right;
     margin-right: 31px;
   }
