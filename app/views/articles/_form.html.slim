@@ -1,0 +1,13 @@
+- if article.errors.present?
+  ul
+    - article.errors.full_messages.each do |message|
+      li
+        = message
+.article_form
+  = form_with model: [article], local: true do |f|
+    .form_group
+      = f.label :title
+      = f.text_field :title
+    .form_group
+      = f.text_area :content
+    = f.submit '保存'
