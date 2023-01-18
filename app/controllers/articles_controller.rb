@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i(edit update destroy show)
 
   def index
-    @articles = Article.active
+    @articles = Article.active.order("created_at #{sort_direction}")
   end
 
   def show
@@ -54,5 +54,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params["id"])
   end
 
+  def sort_direction
+    params[:direction] ? params[:direction] : 'asc'
+  end
 
 end
