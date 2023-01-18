@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i(edit update destroy show)
+  before_action :set_article, only: %i[edit update destroy show]
 
   def index
     @articles = Article.active.order("created_at #{sort_direction}")
@@ -13,6 +13,8 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def edit; end
+
   def create
     @article = current_user.articles.new(article_params)
 
@@ -21,9 +23,6 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update
@@ -41,7 +40,6 @@ class ArticlesController < ApplicationController
     end
 
     redirect_to articles_url, notice: "「#{@article.title}」を削除しました。"
-
   end
 
   private
@@ -55,7 +53,6 @@ class ArticlesController < ApplicationController
   end
 
   def sort_direction
-    params[:direction] ? params[:direction] : 'asc'
+    params[:direction] || 'asc'
   end
-
 end

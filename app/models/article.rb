@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   validates :content, presence: true
   # validates :author, presence: true
 
-  scope :active, -> {
+  scope :active, lambda {
     where(deleted_at: nil)
   }
 end
