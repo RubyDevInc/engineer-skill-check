@@ -1,0 +1,4 @@
+.article_space
+  p.article_index
+    = link_to '一覧に戻る', articles_path, class: 'btn'
+  = render partial: 'article', locals: { article: @article }
