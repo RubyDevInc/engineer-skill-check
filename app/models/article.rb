@@ -1,5 +1,10 @@
 class Article < ApplicationRecord
-  validates :title, presence: true
+  belongs_to :employee
+
+  validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true
-  validates :author, presence: true
+
+  scope :active, -> {
+    where(deleted_at: nil)
+  }
 end

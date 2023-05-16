@@ -1,0 +1,78 @@
+.article_index {
+  .new_article {
+    text-align: right;
+    margin-right: 31px;
+  }
+
+  .btn {
+    border: 1px solid;
+    padding: 3px 5px;
+  }
+
+  .article_table {
+    height: fit-content;
+    width: 800px;
+    table-layout: fixed;
+    margin-top: 20px;
+
+    thead {
+      line-height: 50px;
+
+      .department_th {
+        width: 90px;
+      }
+    }
+
+    .name {
+      text-align: left;
+      width: 350px;
+      padding-left: 50px;
+    }
+
+    .article {
+      line-height: 30px;
+
+      .btn_th {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.article_form {
+  position: relative;
+  margin-top: 60px;
+
+  .form_group {
+    display: flex;
+    line-height: 2.4em;
+
+    label {
+      display: inline-block;
+      width: 120px;
+    }
+
+    input {
+      width: 500px;
+      margin-right: 20px;
+      margin-top: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+      width:500px;
+      height:200px;
+      margin-right: 20px;
+      margin-top: 5px;
+    }
+  }
+
+  input[type="submit"]{
+    position: absolute;
+    top: -38px;
+    right: 20px;
+    padding: 0px 22px;
+    background-color: white;
+    border: 1px solid;
+  }
+}
