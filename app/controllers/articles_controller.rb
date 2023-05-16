@@ -19,9 +19,17 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @article.employee = current_user
   end
 
   def update
+    @article = Article.find(params[:id])
+    @article.employee = current_user
+    if @article.update(article_params)
+      redirect_to articles_url, notice: "記事を更新しました。"
+    else
+      render :edit
+    end
   end
 
   def destroy
