@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.employee = current_user
     if @article.update(article_params)
-      redirect_to articles_url, notice: "記事を更新しました。"
+      redirect_to article_path(@article), notice: "記事を更新しました。"
     else
       render :edit
     end

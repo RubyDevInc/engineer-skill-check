@@ -1,4 +1,7 @@
 <div class="article_space">
+  <% if flash.notice.present? %>
+    <p><%= flash.notice %></p>
+  <% end %>
   <p class="article_index">
     <%= link_to '一覧に戻る', articles_path, class: 'btn' %>
     <% if current_user.news_posting_auth %>
