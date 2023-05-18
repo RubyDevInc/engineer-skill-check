@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.active.order("#{sort_column} #{sort_direction}")
   end
 
   def new
@@ -48,6 +48,14 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:employee_id, :title, :content, :author)
+  end
+
+  def sort_column
+    params[:sort] ? params[:sort] : 'created_at'
+  end
+
+  def sort_direction
+    params[:direction] ? params[:direction] : 'asc'
   end
 
 end
