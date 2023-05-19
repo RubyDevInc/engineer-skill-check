@@ -5,13 +5,20 @@
     <% end %>
   </ul>
 <% end %>
-
 <%= render partial: 'employee_info', locals: { employee: @employee } %>
+<div class="row mb-3 p-2 bg-light">
+  <%= form_with model: [employee, profile], local: true do |f| %>
+    <div class="col-md-4">
+      <%= f.label :profile, class: 'label' %>
+    </div>
+    <div class="col-md-8">
+      <div class="input-group w-100 mb-3">
+        <%= f.text_area :profile, class: 'form-control' %>
+      </div>
+      <div class="input-group-append d-flex justify-content-end">
+        <%= f.submit '保存', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<%= form_with model: [employee, profile], local: true do |f| %>
-  <div class="form_group">
-    <%= f.label :profile, class: 'label' %>
-    <%= f.text_area :profile %>
-  </div>
-  <%= f.submit '保存' %>
-<% end %>

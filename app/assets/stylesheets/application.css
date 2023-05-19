@@ -24,6 +24,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .gnavi li a{
 position: relative;
 }
