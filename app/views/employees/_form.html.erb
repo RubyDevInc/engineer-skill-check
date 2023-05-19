@@ -1,66 +1,69 @@
-<div class="employee_form">
-  <% if employee.errors.present? %>
-    <ul>
-      <% employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <%= form_with model: employee, local: true do |f| %>
-    <div class="form_group">
-      <%= f.label :number %>
-      <%= f.text_field :number %>
+<div class="container mt-3 p-5">
+  <div class="card">
+    <h2 class="card-header text-center">
+      新規登録
+    </h2>
+    <div class="card-body p-5">
+      <div class="employee_form">
+        <% if employee.errors.present? %>
+          <div class="alert alert-danger" role="alert">
+            <ul>
+              <% employee.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= form_with model: employee, local: true do |f| %>
+          <div class="form-group mb-3">
+            <%= f.label :number %>
+            <%= f.text_field :number, class: 'form-control' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :e_mail %>
+            <%= f.text_field :e_mail, class: 'form-control' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :account %>
+            <%= f.text_field :account, class: 'form-control' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :date_of_joining %>
+            <%= f.date_field :date_of_joining, class: 'form-control' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :department_id %>
+            <%= f.collection_select(:department_id, @departments, :id, :name, { include_blank: true }, { class: 'form-control' }) %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.label :office_id %>
+            <%= f.collection_select(:office_id, @offices, :id, :name, { include_blank: true }, { class: 'form-control' }) %>
+          </div>
+          <div class="form-group d-flex mb-3">
+            <div class="form-check me-3">
+              <%= f.check_box :news_posting_auth, class: 'form-check-input' %>
+              <%= f.label :news_posting_auth, class: 'form-check-label' %>
+            </div>
+            <div class="form-check">
+              <%= f.check_box :employee_info_manage_auth, class: 'form-check-input' %>
+              <%= f.label :employee_info_manage_auth, class: 'form-check-label' %>
+            </div>
+          </div>
+          <%= f.submit '保存', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
     </div>
-
-    <div class="form_group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-    </div>
-
-    <div class="form_group">
-      <%= f.label :e_mail %>
-      <%= f.text_field :e_mail %>
-    </div>
-
-    <div class="form_group">
-      <%= f.label :account %>
-      <%= f.text_field :account %>
-    </div>
-
-    <div class="form_group">
-      <%= f.label :date_of_joining %>
-      <%= f.date_field :date_of_joining %>
-    </div>
-
-    <div class="form_group">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
-
-    <div class="form_group">
-      <%= f.label :department_id %>
-      <%= f.collection_select(:department_id, @departments, :id, :name)%>
-    </div>
-
-    <div class="form_group">
-      <%= f.label :office_id %>
-      <%= f.collection_select(:office_id, @offices, :id, :name)%>
-    </div>
-
-    <div class="form_group">
-      <%= f.label :news_posting_auth, class: 'checkbox_label' %>
-      <%= f.check_box :news_posting_auth, :as => :boolean %>
-    </div>
-
-    <div class="form_group">
-      <%= f.label :employee_info_manage_auth, class: 'checkbox_label' %>
-      <%= f.check_box :employee_info_manage_auth, :as => :boolean %>
-    </div>
-
-    <%= f.submit '保存' %>
-  <% end %>
+  </div>
 </div>
