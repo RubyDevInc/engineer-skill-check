@@ -32,6 +32,8 @@ ja:
         date_of_joining: 入社年月日
         department_id: 部署
         office_id: オフィス
+        department: 部署
+        office: オフィス
         news_posting_auth: お知らせ投稿権限
         employee_info_manage_auth: 社員情報管理権限
       profile:
