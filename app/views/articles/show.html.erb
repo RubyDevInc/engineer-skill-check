@@ -8,18 +8,24 @@
     <%= link_to '一覧に戻る', articles_path, class: 'btn btn-primary me-3' %>
   </p>
   <div class="row mb-3">
-    <div class="col-md-2  d-flex justify-content-end">
-      <h2 class="label">タイトル</h2>
+    <div class="col-md-2">
+      <div class="card p-3  d-flex justify-content-center text-center">
+        <h3>投稿者</h3>
+        <div class="avatar-image">
+          <%= image_tag "https://placehold.jp/94x94.png", class: "avatar-image rounded-circle overflow-hidden mb-3", style: "object-fit: cover; width: 94px; height: 94px;" %>
+        </div>
+        <h4 class="card-title mb-3">
+          <%= link_to employee_profile_path(@article.employee) do %>
+            <%= "#{@article.employee.last_name} #{@article.employee.first_name}" %>
+          <% end %>
+        </h4>
+      </div>
     </div>
     <div class="col-md-10">
-      <h2 class="article_value"><%= @article.title %></h2>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col-md-2 d-flex justify-content-end">
-    </div>
-    <div class="col-md-10">
-      <span class="article_content"><%= @article.content %></span>
+      <div class="card p-3 mb-3">
+        <h2 class="article_value card-title"><%= @article.title %></h2>
+        <span class="article_content"><%= @article.content %></span>
+      </div>
     </div>
   </div>
   <div class="col-sm-12 d-flex justify-content-end">
