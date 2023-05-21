@@ -8,10 +8,10 @@
 <%= render partial: 'employee_info', locals: { employee: @employee } %>
 <div class="row mb-3 p-2 bg-light">
   <%= form_with model: [employee, profile], local: true do |f| %>
-    <div class="col-md-4">
+    <div class="">
       <%= f.label :profile, class: 'label' %>
     </div>
-    <div class="col-md-8">
+    <div class="">
       <div class="input-group w-100 mb-3">
         <%= f.text_area :profile, class: 'form-control' %>
       </div>
