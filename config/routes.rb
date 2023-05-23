@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   resources :employees do
     resources :profiles
   end
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create, :destroy]
+  end
 end
