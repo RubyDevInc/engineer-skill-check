@@ -17,7 +17,6 @@
         <th class="create_th"><%= sort_order "created_at", "公開日" %></th>
         <% if current_user.news_posting_auth %>
           <th class="btn_th"></th>
-          <th class="btn_th"></th>
         <% end %>
       </tr>
     </thead>
@@ -31,6 +30,8 @@
             <%= link_to '編集', edit_article_path(article), class: 'btn btn-secondary' %>
             <%= link_to '削除', article, method: :delete, data: { confirm: "「#{article.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger' %>
           </td>
+        <% else %>
+          <td class="btn_th"></td>
         <% end %>
       </tr>
     <% end %>
