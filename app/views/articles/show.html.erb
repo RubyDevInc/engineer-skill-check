@@ -31,7 +31,7 @@
         <% @comments.each do |comment| %>
           <div class="card mb-3 comment-area">
             <div class="card-header">
-              <%= "#{@article.employee.last_name} #{@article.employee.first_name}" %>さんのコメント
+              <%= "#{comment.employee.last_name} #{comment.employee.first_name}" %>さんのコメント
             </div>
             <div class="card-body d-flex text-align-center">
               <p class="card-text"><%= comment.content %></p>
