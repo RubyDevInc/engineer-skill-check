@@ -5,6 +5,7 @@ class Employee < ApplicationRecord
   belongs_to :department
   has_many :profiles
   has_many :articles
+  has_many :comments, dependent: :destroy
 
   validates :number, presence: true, uniqueness: true
   validates :last_name, presence: true
