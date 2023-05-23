@@ -36,7 +36,7 @@
             <div class="card-body d-flex text-align-center">
               <p class="card-text"><%= comment.content %></p>
               <% if current_user == comment.employee %>
-                <%= button_to "削除", [comment.article, comment], method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger btn-sm px-2 mx-2" %>
+                <%= button_to '削除', [comment.article, comment], method: :delete, data: { confirm: "コメントを削除します。よろしいですか？" }, class: 'btn btn-danger btn-sm mx-3' %>
               <% end %>
             </div>
           </div>
