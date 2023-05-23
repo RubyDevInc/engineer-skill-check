@@ -12,9 +12,50 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-8">
-      <div class="card p-3">
+      <div class="card p-3 mb-3">
         <div class="card-body">
           <%= render partial: 'form', locals: { employee: @employee, profile: @profile } %>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <h3 class="card-header">
+           投稿したお知らせ
+        </h3>
+        <div class="card-body">
+          <% if @employee.articles.present? %>
+            <ul class="list-group">
+              <% @employee.articles.each do |article| %>
+                <li class="list-group-item d-flex justify-content-between">
+                  <%= link_to article.title, article_path(article), class: "stretched-link" %>
+                  <span><%= article.created_at.strftime("%Y/%m/%d") %></span>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>まだ登録したお知らせがありません。</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <h3 class="card-header">
+           投稿したコメント
+        </h3>
+        <div class="card-body">
+          <% if @employee.comments.present? %>
+            <ul class="list-group">
+              <% @employee.comments.each do |comment| %>
+                <li class="list-group-item">
+                  <div class="d-flex justify-content-between">
+                    <p><%= comment.content %></p>
+                    <span><i class="far fa-comment mx-1"></i><%= comment.created_at.strftime("%Y/%m/%d") %></span>
+                  </div>
+                  <p class="text-end"><%= link_to comment.article.title, article_path(comment.article) %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>まだ登録したお知らせがありません。</p>
+          <% end %>
         </div>
       </div>
     </div>
