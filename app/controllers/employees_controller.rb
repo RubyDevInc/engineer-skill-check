@@ -6,6 +6,13 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.active.order("#{sort_column} #{sort_direction}")
+    @employees_csv = Employee.all
+    respond_to do |format|
+      format.html
+      format.csv do |csv|
+        send_employees_csv(@employees_csv)
+      end
+    end
   end
 
   def new
@@ -65,4 +72,23 @@ class EmployeesController < ApplicationController
   def sort_direction
     params[:direction] || 'asc'
   end
+
+  def send_employees_csv(employees)
+    csv_data = CSV.generate(row_sep: "\r\n", encoding:Encoding::CP932) do |csv|
+      culumn_names = %w(社員番号 名前 アカウント メールアドレス 入社年月日 部署 オフィス)
+      csv << culumn_names
+      employees.each do |employee|
+        values = [employee.number,
+                  "#{employee.last_name} #{employee.first_name}",
+                  employee.account,
+                  employee.e_mail,
+                  employee.date_of_joining,
+                  employee.department.name,
+                  employee.office.name]
+        csv << values
+      end
+    end
+    send_data(csv_data, filename: "employees.csv")
+  end
+
 end

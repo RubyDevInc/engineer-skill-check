@@ -7,6 +7,7 @@
   <% end %>
   <% if current_user.employee_info_manage_auth %>
     <div class="d-flex justify-content-end mb-3">
+      <p class="employees-csv"><%= link_to "csv出力",employees_path(format: :csv), class: 'btn btn-warning me-3' %></p>
       <p class="new_employee"><%= link_to "新規追加", new_employee_path, class: "btn btn-primary" %></p>
     </div>
   <% end %>
